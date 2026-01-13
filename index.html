@@ -81,13 +81,18 @@
         .cat-tag { display: inline-flex; align-items: center; background: #f1f5f9; padding: 5px 10px; border-radius: 20px; margin: 3px; font-size: 0.75rem; font-weight: 700; color: #475569; }
         .cat-tag button { background: none; border: none; color: var(--danger); margin-left: 5px; cursor: pointer; font-size: 1rem; }
         .badge { padding: 3px 6px; border-radius: 5px; font-size: 0.7rem; font-weight: 700; background: var(--primary-light); color: var(--primary); }
-    </style>
+        
+        .direitos{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+  </style>
 </head>
 <body>
 
 <header>
     <div class="nav-container">
-        <div class="logo"><span>💰</span> FinançasPro</div>
+        <div class="logo"><span>💰</span> FinanSimple</div>
         <div class="menu">
             <button onclick="changeTab('dashboard')" id="btn-dashboard" class="active">Painel</button>
             <button onclick="changeTab('receitas')" id="btn-receitas">Receitas</button>
@@ -107,20 +112,20 @@
     <!-- DASHBOARD -->
     <section id="dashboard" class="tab-content active">
         <div class="grid-stats">
-            <div class="card accent"><h3>Mês/Entradas</h3><div class="value val-up" id="stat-rec-mes">R$ 0,00</div></div>
-            <div class="card accent"><h3>Mês/Saídas</h3><div class="value val-down" id="stat-des-mes">R$ 0,00</div></div>
+            <div class="card accent"><h3>Mês/Receita</h3><div class="value val-up" id="stat-rec-mes">R$ 0,00</div></div>
+            <div class="card accent"><h3>Mês/Despesas</h3><div class="value val-down" id="stat-des-mes">R$ 0,00</div></div>
             <div class="card accent"><h3>Saldo Mês</h3><div class="value" id="stat-saldo-mes">R$ 0,00</div></div>
         </div>
 
         <h2 style="font-size: 1rem; margin: 1.5rem 0 1rem; color: var(--text-sub)">Relatório Anual (<span id="txt-ano-atual">...</span>)</h2>
         <div class="grid-stats">
-            <div class="card"><h3>Entradas (Ano)</h3><div class="value" id="stat-rec-ano">R$ 0,00</div></div>
-            <div class="card"><h3>Saídas (Ano)</h3><div class="value" id="stat-des-ano">R$ 0,00</div></div>
-            <div class="card"><h3>Balanço Ano</h3><div class="value" id="stat-saldo-ano">R$ 0,00</div></div>
+            <div class="card"><h3>Receita (Ano)</h3><div class="value" id="stat-rec-ano">R$ 0,00</div></div>
+            <div class="card"><h3>Despesas (Ano)</h3><div class="value" id="stat-des-ano">R$ 0,00</div></div>
+            <div class="card"><h3>Saldo Anual</h3><div class="value" id="stat-saldo-ano">R$ 0,00</div></div>
         </div>
 
         <div class="chart-wrapper chart-full">
-            <h3 style="margin-bottom: 1rem;">Evolução Mensal HD</h3>
+            <h3 style="margin-bottom: 1rem;">Relatório Mensal</h3>
             <canvas id="chartEvolucao" style="width: 100%; height: 250px;"></canvas>
         </div>
 
@@ -207,14 +212,16 @@
             <form onsubmit="addCartao(event)" class="form-group">
                 <div class="input-box"><label>Data</label><input type="date" id="cc-date" required></div>
                 <div class="input-box"><label>Local</label><input type="text" id="cc-desc" required></div>
-                <div class="input-box"><label>Cat.</label><select id="cc-cat" class="cat-select-dynamic"></select></div>
-                <div class="input-box"><label>Parc.</label><input type="number" id="cc-parc" min="1" value="1"></div>
+                <div class="input-box"><label>Categoria</label><select id="cc-cat" class="cat-select-dynamic"></select></div>
+                <div class="input-box"><label>Parcelas</label><input type="number" id="cc-parc" min="1" value="1"></div>
                 <div class="input-box"><label>Total</label><input type="number" step="0.01" id="cc-valor"></div>
                 <button type="submit" class="btn-primary">Lançar</button>
             </form>
             <div class="table-responsive"><table id="table-cartao"><thead><tr><th>Data</th><th>Item</th><th>Total</th><th>Ação</th></tr></thead><tbody></tbody></table></div>
         </div>
     </section>
+
+    <footer class="direitos">Direitos Reservado Valvassoura</footer>
 </main>
 
 <script>
